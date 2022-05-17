@@ -7,7 +7,7 @@ import '../../../core/values/colors.dart';
 import '../controllers/home_page_controller.dart';
 
 class UserMaps extends GetView<HomePageController> {
-  const UserMaps({
+  UserMaps({
     Key? key,
   }) : super(key: key);
 
@@ -26,11 +26,20 @@ class UserMaps extends GetView<HomePageController> {
         child: ClipRRect(
           borderRadius: BorderRadius.circular(16),
           child: GoogleMap(
+            polylines: {
+              if (controller.directions != null)
+                Polyline(
+                  polylineId: PolylineId('_poly'),
+                  points: controller.directions!.polylinePoint
+                      .map((e) => LatLng(e.latitude, e.longitude))
+                      .toList(),
+                ),
+            },
             mapType: MapType.normal,
-            myLocationEnabled: true,
+            myLocationEnabled: (controller.directions == null) ? true : false,
             myLocationButtonEnabled: true,
             initialCameraPosition: controller.initialCameraPosition,
-            // onMapCreated: (mapControl) => controller.mapController = mapControl,
+            markers: controller.markers,
             onMapCreated: controller.initializeMapController,
           ),
         ),

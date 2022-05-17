@@ -1,3 +1,5 @@
+import 'package:digi_kot/app/data/model/directions_model.dart';
+import 'package:digi_kot/app/data/provider/directions_provider.dart';
 import 'package:digi_kot/app/data/provider/location_provider.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:get/get.dart';
@@ -14,6 +16,10 @@ class HomePageController extends GetxController with StateMixin {
 
   Marker? markerFrom;
   Marker? markerTo;
+
+  Set<Marker> markers = {};
+
+  Directions? directions;
 
   @override
   void onInit() {
@@ -35,6 +41,24 @@ class HomePageController extends GetxController with StateMixin {
   void handleUerRouteRequest() async {
     closeKeyboard();
 
+    if (destinationFromController.text.isEmpty &&
+        destinationToController.text.isEmpty) {
+      markers = {};
+      refresh();
+      return;
+    }
+
+    if (destinationFromController.text.isNotEmpty &&
+        destinationToController.text.isEmpty) {
+      Get.snackbar('Destination', 'Please input your destination');
+      return;
+    }
+
+    change('loading', status: RxStatus.loading());
+
+    directions = await DirectionProvider.getDirections(
+        destinationFromController.text, destinationToController.text);
+
     LatLng from;
     if (destinationFromController.text.isEmpty) {
       from = firstPosition;
@@ -47,8 +71,32 @@ class HomePageController extends GetxController with StateMixin {
     LatLng to =
         await LocationProvider.getLocationFrom(destinationToController.text);
 
-    print(from);
-    print(to);
+    // create marker
+    markers.add(
+      Marker(
+        markerId: MarkerId('from'),
+        position: from,
+      ),
+    );
+    markers.add(
+      Marker(
+        markerId: MarkerId('to'),
+        position: to,
+      ),
+    );
+
+    resetTextController();
+
+    change('loading', status: RxStatus.success());
+
+    refresh();
+
+    // set route
+  }
+
+  void resetTextController() {
+    destinationFromController.clear();
+    destinationToController.clear();
   }
 
   void initializeTextFieldController() {
