@@ -29,6 +29,7 @@ class UserMaps extends GetView<HomePageController> {
             polylines: {
               if (controller.directions != null)
                 Polyline(
+                  width: 5,
                   polylineId: PolylineId('_poly'),
                   points: controller.directions!.polylinePoint
                       .map((e) => LatLng(e.latitude, e.longitude))

@@ -1,17 +1,21 @@
 import 'package:get/get.dart';
 
-import 'package:digi_kot/app/modules/history/bindings/history_binding.dart';
-import 'package:digi_kot/app/modules/history/views/history_view.dart';
-import 'package:digi_kot/app/modules/home/bindings/home_binding.dart';
-import 'package:digi_kot/app/modules/home/views/home_view.dart';
-import 'package:digi_kot/app/modules/home_page/bindings/home_page_binding.dart';
-import 'package:digi_kot/app/modules/home_page/views/home_page_view.dart';
-import 'package:digi_kot/app/modules/scan/bindings/scan_binding.dart';
-import 'package:digi_kot/app/modules/scan/views/scan_view.dart';
-import 'package:digi_kot/app/modules/splash_screen/bindings/splash_screen_binding.dart';
-import 'package:digi_kot/app/modules/splash_screen/views/splash_screen_view.dart';
-import 'package:digi_kot/app/modules/user_account/bindings/user_account_binding.dart';
-import 'package:digi_kot/app/modules/user_account/views/user_account_view.dart';
+import '../modules/detail_trayek/bindings/detail_trayek_binding.dart';
+import '../modules/detail_trayek/views/detail_trayek_view.dart';
+import '../modules/history/bindings/history_binding.dart';
+import '../modules/history/views/history_view.dart';
+import '../modules/home/bindings/home_binding.dart';
+import '../modules/home/views/home_view.dart';
+import '../modules/home_page/bindings/home_page_binding.dart';
+import '../modules/home_page/views/home_page_view.dart';
+import '../modules/scan/bindings/scan_binding.dart';
+import '../modules/scan/views/scan_view.dart';
+import '../modules/splash_screen/bindings/splash_screen_binding.dart';
+import '../modules/splash_screen/views/splash_screen_view.dart';
+import '../modules/trayek_angkot/bindings/trayek_angkot_binding.dart';
+import '../modules/trayek_angkot/views/trayek_angkot_view.dart';
+import '../modules/user_account/bindings/user_account_binding.dart';
+import '../modules/user_account/views/user_account_view.dart';
 
 // ignore_for_file: constant_identifier_names
 
@@ -58,6 +62,16 @@ class AppPages {
       name: _Paths.USER_ACCOUNT,
       page: () => UserAccountView(),
       binding: UserAccountBinding(),
+    ),
+    GetPage(
+      name: _Paths.TRAYEK_ANGKOT,
+      page: () => TrayekAngkotView(),
+      binding: TrayekAngkotBinding(),
+    ),
+    GetPage(
+      name: _Paths.DETAIL_TRAYEK,
+      page: () => DetailTrayekView(),
+      binding: DetailTrayekBinding(),
     ),
   ];
 }

@@ -11,6 +11,8 @@ abstract class Routes {
   static const HISTORY = _Paths.HISTORY;
   static const HOME_PAGE = _Paths.HOME_PAGE;
   static const USER_ACCOUNT = _Paths.USER_ACCOUNT;
+  static const TRAYEK_ANGKOT = _Paths.TRAYEK_ANGKOT;
+  static const DETAIL_TRAYEK = _Paths.DETAIL_TRAYEK;
 }
 
 abstract class _Paths {
@@ -20,4 +22,6 @@ abstract class _Paths {
   static const HISTORY = '/history';
   static const HOME_PAGE = '/home-page';
   static const USER_ACCOUNT = '/user-account';
+  static const TRAYEK_ANGKOT = '/trayek-angkot';
+  static const DETAIL_TRAYEK = '/detail-trayek';
 }

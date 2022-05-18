@@ -1,5 +1,7 @@
 import 'package:digi_kot/app/modules/home_page/widget/single_menu_builder.dart';
+import 'package:digi_kot/app/routes/app_pages.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 
 import '../../../core/values/assets.dart';
 import '../../../core/values/colors.dart';
@@ -15,18 +17,24 @@ class HomeMenuBox extends StatelessWidget {
         SingleMenuBuilder(
           image: Image.asset(carImage),
           title: 'Angkot',
+          function: () {
+            Get.toNamed(Routes.TRAYEK_ANGKOT);
+          },
         ),
         SingleMenuBuilder(
           image: Image.asset(bus),
           title: 'Bus Kota',
+          function: () {},
         ),
         SingleMenuBuilder(
           image: Image.asset(map),
           title: 'Maps',
+          function: () {},
         ),
         SingleMenuBuilder(
           image: Image.asset(others),
           title: 'Lainnya',
+          function: () {},
         ),
       ],
     );

@@ -7,25 +7,30 @@ class SingleMenuBuilder extends StatelessWidget {
     Key? key,
     required this.image,
     required this.title,
+    required this.function,
   }) : super(key: key);
 
   final String title;
   final Image image;
+  final VoidCallback function;
 
   @override
   Widget build(BuildContext context) {
     return Column(
       children: [
-        Container(
-          padding: EdgeInsets.symmetric(
-            horizontal: 10,
-            vertical: 5,
+        GestureDetector(
+          onTap: function,
+          child: Container(
+            padding: EdgeInsets.symmetric(
+              horizontal: 10,
+              vertical: 5,
+            ),
+            decoration: BoxDecoration(
+              color: Colors.white,
+              borderRadius: BorderRadius.circular(10),
+            ),
+            child: image,
           ),
-          decoration: BoxDecoration(
-            color: Colors.white,
-            borderRadius: BorderRadius.circular(10),
-          ),
-          child: image,
         ),
         Text(
           title,
