@@ -85,13 +85,14 @@ class HomePageController extends GetxController with StateMixin {
       ),
     );
 
+    // update google maps camera position
+    initialCameraPosition = CameraPosition(target: from, zoom: 17);
+
     resetTextController();
 
-    change('loading', status: RxStatus.success());
+    change('OK', status: RxStatus.success());
 
     refresh();
-
-    // set route
   }
 
   void resetTextController() {
@@ -109,7 +110,7 @@ class HomePageController extends GetxController with StateMixin {
     change('Loading', status: RxStatus.loading());
 
     firstPosition = await LocationProvider.getCurrentLocation();
-    initialCameraPosition = CameraPosition(target: firstPosition, zoom: 20);
+    initialCameraPosition = CameraPosition(target: firstPosition, zoom: 17);
 
     change('OK', status: RxStatus.success());
   }

@@ -1,4 +1,5 @@
 import 'package:digi_kot/app/data/model/angkot_route_model.dart';
+import 'package:digi_kot/app/global_widgets/trayek_list_tile.dart';
 import 'package:flutter/material.dart';
 
 import 'package:get/get.dart';
@@ -24,11 +25,14 @@ class TrayekAngkotView extends GetView<TrayekAngkotController> {
 
             return GestureDetector(
               onTap: () {
-                Get.toNamed(Routes.DETAIL_TRAYEK, arguments: currentModel);
+                var arguments = {no, currentModel};
+                Get.toNamed(Routes.DETAIL_TRAYEK, arguments: arguments);
               },
-              child: ListTile(
-                leading: Text(no.toString()),
-                title: Text(title),
+              child: TrayekListTile(
+                useMargin: true,
+                controller: controller,
+                angkotRouteName: title,
+                number: no.toString(),
                 trailing: Icon(Icons.arrow_right),
               ),
             );

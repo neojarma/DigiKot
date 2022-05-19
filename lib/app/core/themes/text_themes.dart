@@ -25,3 +25,8 @@ TextStyle navigationBarTextStyle = GoogleFonts.poppins(
 TextStyle homePageTexStyle = GoogleFonts.poppins(
   fontSize: 18,
 );
+
+TextStyle trayekPageTextStyle = GoogleFonts.poppins(
+  color: Colors.white,
+  fontSize: 15,
+);
