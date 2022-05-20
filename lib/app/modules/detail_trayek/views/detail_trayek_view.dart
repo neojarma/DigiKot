@@ -1,3 +1,4 @@
+import 'package:digi_kot/app/core/themes/status_bar_theme.dart';
 import 'package:digi_kot/app/core/themes/text_themes.dart';
 import 'package:digi_kot/app/core/values/colors.dart';
 import 'package:flutter/foundation.dart';
@@ -14,6 +15,7 @@ import '../controllers/detail_trayek_controller.dart';
 class DetailTrayekView extends GetView<DetailTrayekController> {
   @override
   Widget build(BuildContext context) {
+    changeStatusBarDarkTheme();
     return Scaffold(
       backgroundColor: scaffoldWhite,
       body: CustomScrollView(
@@ -23,23 +25,26 @@ class DetailTrayekView extends GetView<DetailTrayekController> {
             snap: false,
             floating: true,
             expandedHeight: 250,
-            flexibleSpace: GoogleMap(
-              gestureRecognizers: <Factory<OneSequenceGestureRecognizer>>{
-                Factory<OneSequenceGestureRecognizer>(
-                    () => EagerGestureRecognizer()),
-              },
-              initialCameraPosition: CameraPosition(
-                target: controller.angkotRoute.routesPointLatlng[0],
-                zoom: 17,
-              ),
-              polylines: {
-                Polyline(
-                  polylineId: PolylineId(controller.angkotRoute.routeName),
-                  width: 4,
-                  points: controller.angkotRoute.routesPointLatlng,
+            flexibleSpace: FlexibleSpaceBar(
+              collapseMode: CollapseMode.pin,
+              background: GoogleMap(
+                gestureRecognizers: <Factory<OneSequenceGestureRecognizer>>{
+                  Factory<OneSequenceGestureRecognizer>(
+                      () => EagerGestureRecognizer()),
+                },
+                initialCameraPosition: CameraPosition(
+                  target: controller.angkotRoute.routesPointLatlng[0],
+                  zoom: 17,
                 ),
-              },
-              markers: controller.markers,
+                polylines: {
+                  Polyline(
+                    polylineId: PolylineId(controller.angkotRoute.routeName),
+                    width: 4,
+                    points: controller.angkotRoute.routesPointLatlng,
+                  ),
+                },
+                markers: controller.markers,
+              ),
             ),
           ),
           SliverToBoxAdapter(

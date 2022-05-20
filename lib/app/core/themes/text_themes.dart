@@ -30,3 +30,15 @@ TextStyle trayekPageTextStyle = GoogleFonts.poppins(
   color: Colors.white,
   fontSize: 15,
 );
+
+TextStyle trayekTitlePageTextStyle = GoogleFonts.poppins(
+  color: Colors.black,
+  fontSize: 25,
+  fontWeight: FontWeight.w600,
+);
+
+TextStyle trayekSubtitlePageTextStyle = GoogleFonts.poppins(
+  color: Colors.black,
+  fontSize: 20,
+  fontWeight: FontWeight.w500,
+);

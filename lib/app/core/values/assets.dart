@@ -1,4 +1,5 @@
 const carImage = 'assets/car.png';
+const mediumCarImage = 'assets/medium_car.png';
 const bus = 'assets/bus.png';
 const logo = 'assets/logo.png';
 const map = 'assets/map.png';
