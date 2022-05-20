@@ -7,7 +7,7 @@ UI and App design by: [Rony Wahyu](https://github.com/ronywahyuu).
 
 ![App Screenshots](assets/app_screenshots.png)
 
-There are 3 pages in this app:
+There are 5 pages in this app:
 1. Splash Screen
 2. Home Page
 3. Scan Page
