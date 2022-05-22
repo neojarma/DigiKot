@@ -1,6 +1,6 @@
 # DigiKot
 
-A simple mobile app built with Flutter
+A simple mobile app built with Flutter  
 UI and App design by: [Rony Wahyu](https://github.com/ronywahyuu).
 
 ## App Screenshot
